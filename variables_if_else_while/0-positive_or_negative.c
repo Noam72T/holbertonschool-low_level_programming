@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
 /**
 * main - Print if the number is negatif or positive or 0
@@ -15,14 +16,15 @@ n = rand() - RAND_MAX / 2;
 
 if (n > 0)
 {
-printf("%d positive/n", n);
+printf("%d positive\n", n);
 }
 else if (n == 0)
 {
-printf("%d egal/n", n);
+printf("%d egal\n", n);
 }
 else
 {
-printf("%d ngative/n", n);
+printf("%d negative\n", n);
 }
+return (0);
 }

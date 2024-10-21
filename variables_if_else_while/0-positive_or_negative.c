@@ -20,7 +20,7 @@ printf("%d positive\n", n);
 }
 else if (n == 0)
 {
-printf("%d egal\n", n);
+printf("%d zero\n", n);
 }
 else
 {

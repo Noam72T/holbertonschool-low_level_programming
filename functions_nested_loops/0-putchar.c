@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
-*Mainin - Entry Function
-*Print "_putchar in newline"
-*Return: 0.
+* Main - Entry Function
+* Print "_putchar in newline"
+* Return: 0.
 */
 
 int main(void)
-{  
+{
 _putchar('_');
 _putchar('p');
 _putchar('u');

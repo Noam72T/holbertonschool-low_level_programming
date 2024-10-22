@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* _isalpha - Entry Function
+* print_sign - Entry Function
 * @n: = The function
 * Print "_putchar in newline"
 * Return: 1 if n > 0

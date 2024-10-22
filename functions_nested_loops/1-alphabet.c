@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* main - Entry Function
+* print_alphabet - Entry Function
 * Print "_putchar in newline"
 * Return: 0.
 */

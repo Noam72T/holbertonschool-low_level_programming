@@ -11,8 +11,9 @@
 
 int _abs(int n)
 {
-int y;
-y = abs(n);
-printf("%d", y);
-return (0);
+if (n >= 0)
+{
+return (n);
+}
+return (-n);
 }

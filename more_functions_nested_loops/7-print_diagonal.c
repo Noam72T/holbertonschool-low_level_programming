@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* print_line - prints _ to ___________
+* print_diagonal - prints _ to ___________
 * @n: number stock
 * Return: returns nothing
 */

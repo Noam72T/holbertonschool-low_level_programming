@@ -2,7 +2,6 @@
 
 /**
 * print_numbers - Entry Function
-* @num: Number checked
 * Return: 0 (Always)
 */
 

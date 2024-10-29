@@ -15,7 +15,7 @@ while (s[reverse] != '\0')
 {
 reverse++;
 }
-for (i = 0; s[i] != '\0'; i++)
+for (i = 0; i < reverse; i++)
 {
 putchar(s[i]);
 }

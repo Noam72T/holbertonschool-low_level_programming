@@ -9,15 +9,20 @@
 
 void rev_string(char *s)
 {
-int reverse = 0;
-while (s[reverse] != '\0')
+char tmp;
+int i, len, len1;
+len = 0;
+while (s[len] != '\0')
 {
-reverse++;
+len++;
+}
+len1 = len - 1;
+printf("%s\n", s);
+for (i = 0; i < len / 2; i++)
+{
+tmp = s[i];
+s[i] = s[len1];
+s[len1--] = tmp;
 }
 printf("%s\n", s);
-for (reverse -= 1; reverse >= 0; reverse--)
-{
-printf("%c", s[reverse]);
-}
-printf("\n");
 }

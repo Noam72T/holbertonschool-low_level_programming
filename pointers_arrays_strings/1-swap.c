@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* reset_to_98 - Entry Function
+* swap_int - Entry Function
 * @a: change the pointers
 * @b: reset The pointers
 * Return: returns nothing

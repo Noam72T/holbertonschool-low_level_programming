@@ -15,7 +15,7 @@ while (str[len] != '\0')
 {
 len++;
 }
-startchar = len / 2;
+startchar = (len + 1)  / 2;
 for (i = startchar; i < len; i++)
 {
 _putchar(str[i]);

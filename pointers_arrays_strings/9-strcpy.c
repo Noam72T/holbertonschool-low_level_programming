@@ -1,9 +1,10 @@
 #include "main.h"
+
 /**
 * *_strcpy - Entry Function
 * @dest: Pointers 1
 * @src: Pointers 2
-* Return: Value od the dest
+* Return: Value of the dest
 */
 
 char *_strcpy(char *dest, char *src)

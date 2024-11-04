@@ -4,7 +4,7 @@
 /**
 * print_diagsums - Entry Functions
 * @a: Pointers 1
-* @size: Size
+* @size: Size of the string
 * Return: return s c or Null
 */
 

@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 /**
- * *_memset - Entry Function
- * @s: Pointers
- * @b: Octets
- * @n: Not négatif number
- * Return: returns nothing
- */
+* *_memset - Entry Function
+* @s: Pointers
+* @b: Octets
+* @n: Not négatif number
+* Return: returns nothing
+*/
 
 char *_memset(char *s, char b, unsigned int n)
 {

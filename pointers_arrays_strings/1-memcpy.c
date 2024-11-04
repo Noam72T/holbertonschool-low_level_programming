@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 /**
- * *_memcpy - Entry Function
- * @dest: Pointers Dest
- * @src: Pointers source
- * @n: Not négatif number
- * Return: returns nothing
- */
+* *_memcpy - Entry Function
+* @dest: Pointers Dest
+* @src: Pointers source
+* @n: Not négatif number
+* Return: returns nothing
+*/
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {

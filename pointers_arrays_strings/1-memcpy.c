@@ -5,7 +5,7 @@
 * *_memcpy - Entry Function
 * @dest: Pointers Dest
 * @src: Pointers source
-* @n: Not négatif number
+* @n: Not negatif number
 * Return: returns nothing
 */
 

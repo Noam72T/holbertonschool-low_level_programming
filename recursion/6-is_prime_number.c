@@ -3,8 +3,8 @@
 
 /**
 * is_prime_number - Function To Print
-* @n: Value of number
-* Return: 0 or 1
+* @n: Value of number.
+* Return: 0 or 1.
 */
 
 int is_prime_number(int n)

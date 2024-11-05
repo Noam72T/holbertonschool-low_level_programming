@@ -9,11 +9,23 @@
 
 int is_prime_number(int n)
 {
-int i;
 if (n <= 1)
 return (0);
-for (i = 2; i * i <= n; i++)
+return (is_prime(n, 2));
+}
+
+/**
+* is_prime - Enty Funtion
+* @n: The number .
+* @i: The dividor
+* Return: 1 if n is prime, 0 if not.
+*/
+
+int is_prime(int n, int i)
+{
+if (i * i > n)
+return (1);
 if (n % i == 0)
 return (0);
-return (1);
+return (is_prime(n, i + 1));
 }

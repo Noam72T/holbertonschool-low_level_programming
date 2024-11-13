@@ -24,7 +24,7 @@ printf("Name %s\n", d->name);
 printf("Age: %f\n", d->age);
 if (d->owner == NULL)
 {
-printf("Onwer: (nil)\n");
+printf("Owner: (nil)\n");
 }
 else
 {

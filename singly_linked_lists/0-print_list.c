@@ -4,8 +4,10 @@
 #include <stdio.h>
 
 /**
- * print_list - Function for prints All Elements
- */
+* print_list - Function for prints All Elements
+* @h: pointers contains string
+* Return: Number Of elements
+*/
 
 size_t print_list(const list_t *h)
 {

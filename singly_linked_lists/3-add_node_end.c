@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
-* add_node_end - Add New node 
+* add_node_end - Add New node end
 * @head: Header to the pointer
 * @str: String to duplicate .
 * Return: Addr new node .

@@ -10,20 +10,9 @@
 * Return: Addr new node .
 */
 
-#include <stdlib.h>
-#include <string.h>
-#include "lists.h"
-
-/**
- * add_node_end - Ajoute un nouveau nœud à la fin d'une liste chaînée list_t.
- * @head: Double pointeur vers la tête de la liste.
- * @str: Chaîne à dupliquer et à ajouter dans le nouveau nœud.
- *
- * Return: Adresse du nouveau nœud, ou NULL en cas d'échec.
- */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *temp;
+    list_t *new_node, *temp;
 	unsigned int len = 0;
 
 	if (str == NULL)

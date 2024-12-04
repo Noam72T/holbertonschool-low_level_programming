@@ -6,7 +6,6 @@
 /**
 * print_list - Function for prints All Elements
 * @h: pointers contains string
-*
 * Return: Number Of elements
 */
 

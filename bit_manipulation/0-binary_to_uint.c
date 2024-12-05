@@ -5,7 +5,7 @@
 #include "main.h"
 
 /**
- * binary_to_uint(const char *b)
+ * binary_to_uint - Function main
  * @b: pointers
  * Return: Resultat
  */

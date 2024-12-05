@@ -2,11 +2,10 @@
 #include "lists.h"
 
 /**
-* add_dnodeint_end - Function of the node
-* @head: Double pointer head.
-* @n: new value of the interger.
-* Return: Addresse of the element
-*/
+ * free_dlistint - Function of the node
+ * @head: Double pointer head.
+ * Return: Addresse of the element
+ */
 
 void free_dlistint(dlistint_t *head)
 {

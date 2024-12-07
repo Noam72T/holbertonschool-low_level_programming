@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include "main.h"
-
 /**
  * read_textfile - Function Read
  * @filename: pointers
@@ -11,29 +11,42 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t files, let, read;
-	char *text;
+    int files;
+    ssize_t let, read_bytes;
+    char *text;
 
-	text = malloc(letters);
-	if (text == NULL)
-		return (0);
+    if (filename == NULL)
+        return (0);
 
-	if (filename == NULL)
-		return (0);
+    text = malloc(letters);
+    if (text == NULL)
+        return (0);
 
-	files = open(filename, O_RDONLY);
+    files = open(filename, O_RDONLY);
+    if (files == -1)
+    {
+        free(text);
+        return (0);
+    }
 
-	if (files == -1)
-	{
-		free(text);
-		return (0);
-	}
+    let = read(files, text, letters);
+    if (let == -1)
+    {
+        free(text);
+        close(files);
+        return (0);
+    }
 
-	let = read(files, text, letters);
+    read_bytes = write(STDOUT_FILENO, text, let);
+    if (read_bytes == -1 || read_bytes != let)
+    {
+        free(text);
+        close(files);
+        return (0);
+    }
 
-	read = readrite(STDOUT_FILENO, text, let);
+    free(text);
+    close(files);
 
-	close(files);
-
-	return (read);
+    return (read_bytes);
 }

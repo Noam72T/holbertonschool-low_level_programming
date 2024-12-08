@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
- * error_and_exit - Function Error and exit.
+ * error_exit - Function Error and exit.
  * @msg: Error mess.
  * @code: Code Error.
  * @file: Name of the file.

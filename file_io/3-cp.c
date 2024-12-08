@@ -1,85 +1,79 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUFFER_SIZE 1024
+
+void error_exit(const char *msg, int code, const char *file);
+void close_file(int fd);
 
 /**
- * _errexit - print error message and exit
- * @str: err message as string
- * @file: file name as string
- * @code: exit code
- * Return: void
+ * main - Function main.
+ * @argc: Args Counter.
+ * @argv: Args Value.
+ * Return: 0 on success
  */
-void _errexit(char *str, char *file, int code)
+
+int main(int argc, char *argv[])
 {
-	dprintf(STDERR_FILENO, str, file);
+	int file_from, file_to;
+	ssize_t bytes_read, bytes_written;
+	char buffer[BUFFER_SIZE];
+
+	if (argc != 3)
+		error_exit("Usage: cp file_from file_to", 97, NULL);
+
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1)
+		error_exit("Error: Can't read from file", 98, argv[1]);
+
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (file_to == -1)
+		error_exit("Error: Can't write to", 99, argv[2]);
+
+	while ((bytes_read = read(file_from, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytes_written = write(file_to, buffer, bytes_read);
+		if (bytes_written != bytes_read)
+			error_exit("Error: Can't write to", 99, argv[2]);
+	}
+	if (bytes_read == -1)
+		error_exit("Error: Can't read from file", 98, argv[1]);
+
+	close_file(file_from);
+	close_file(file_to);
+
+	return (0);
+}
+/**
+ * error_exit - Function Error and exit.
+ * @msg: Error mess.
+ * @code: Code Error.
+ * @file: Name of the file.
+ */
+
+void error_exit(const char *msg, int code, const char *file)
+{
+	if (file)
+		dprintf(STDERR_FILENO, "%s %s\n", msg, file);
+	else
+		dprintf(STDERR_FILENO, "%s\n", msg);
 	exit(code);
 }
 
 /**
- * _cp - copy source file to destination file
- * @file_from: source file
- * @file_to: destination file
- *
- * Return: void
+ * close_file - Function close file.
+ * @fd: file to close.
  */
-void _cp(char *file_from, char *file_to)
+void close_file(int fd)
 {
-	int fd1, fd2, numread, numwrote;
-	char buffer[1024];
-
-	fd1 = open(file_from, O_RDONLY);
-	if (fd1 == -1)
-		_errexit("Error: Can't read from file %s\n", file_from, 98);
-
-	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (fd2 == -1)
-		_errexit("Error: Can't write to %s\n", file_to, 99);
-
-	numread = 1024;
-	while (numread == 1024)
+	if (close(fd) == -1)
 	{
-		numread = read(fd1, buffer, 1024);
-		if (numread == -1)
-			_errexit("Error: Can't read from file %s\n", file_from, 98);
-
-		numwrote = write(fd2, buffer, numread);
-
-		if (numwrote == -1)
-			_errexit("Error: Can't write to %s\n", file_to, 99);
-	}
-
-	if (numread == -1)
-		_errexit("Error: Can't read from file %s\n", file_from, 98);
-	if (close(fd2) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	if (close(fd1) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-		exit(100);
-	}
-}
-/**
- *main - copies a file to another file
- *@argc: number of arguments passed to function
- *@argv: array containing arguments
- *Return: 0 on success
- */
-int main(int argc, char *argv[])
-{
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-
-	_cp(argv[1], argv[2]);
-
-	return (0);
 }

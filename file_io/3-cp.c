@@ -6,7 +6,7 @@
 
 #define BUFFER_SIZE 1024
 
-void print_error_and_exit(const char *message, int code, const char *file_name);
+void error_exit(const char *msg, int code, const char *file);
 void close_file(int fd);
 
 /**

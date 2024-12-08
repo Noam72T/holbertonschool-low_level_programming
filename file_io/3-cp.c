@@ -7,7 +7,7 @@
 #define BUFFER_SIZE 1024
 
 /**
-* main - function main
+* main - function main.
 * @argc: agrs counter
 * @argv: arg value
 * Return: 0

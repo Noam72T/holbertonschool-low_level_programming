@@ -1,5 +1,5 @@
-#ifndef HOLBERTONH
-#define HOLBERTONH
+#ifndef MAINH
+#define MAINH
 
 #include <unistd.h>
 

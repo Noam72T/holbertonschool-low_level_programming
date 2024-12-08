@@ -12,35 +12,22 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-int files;
-ssize_t let, read_bytes;
-char *text;
+int fd;
+char *buf;
+int lenRead, lenWrite;
 if (filename == NULL)
-    return (0);
-text = malloc(letters);
-if (text == NULL)
-    return (0);
-files = open(filename, O_RDONLY);
-if (files == -1)
-{
-    free(text);
-    return (0);
-}
-let = read(files, text, letters);
-if (let == -1)
-{
-    free(text);
-    close(files);
-    return (0);
-}
-read_bytes = write(STDOUT_FILENO, text, let);
-if (read_bytes == -1 || read_bytes != let)
-{
-    free(text);
-    close(files);
-    return (0);
-}
-free(text);
-close(files);
-return (read_bytes);
+return (0);
+fd = open(filename, O_RDONLY);
+if (fd == -1)
+return (0);
+buf = malloc(letters * sizeof(char));
+if (buf == NULL)
+return (0);
+lenRead = read(fd, buf, letters);
+lenWrite = write(STDOUT_FILENO, buf, lenRead);
+if (lenWrite != lenRead && lenWrite == -1)
+return (0);
+free(buf);
+close(fd);
+return (lenRead);
 }

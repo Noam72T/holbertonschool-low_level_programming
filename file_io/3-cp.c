@@ -1,6 +1,10 @@
+#include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+
+#define BUFFER_SIZE 1024
 
 /**
 * main - function main
@@ -13,7 +17,7 @@ int main(int argc, char *argv[])
 {
 int file_from, file_to;
 ssize_t bytes_read, bytes_written;
-char buf[BUFFER_SIZE];
+char buffer[BUFFER_SIZE];
 if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -32,9 +36,9 @@ dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 close(file_from);
 exit(99);
 }
-while ((bytes_read = read(file_from, buf, BUFFER_SIZE)) > 0)
+while ((bytes_read = read(file_from, buffer, BUFFER_SIZE)) > 0)
 {
-bytes_written = write(file_to, buf, bytes_read);
+bytes_written = write(file_to, buffer, bytes_read);
 if (bytes_written != bytes_read)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);

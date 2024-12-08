@@ -15,9 +15,9 @@ ssize_t bytes_written;
 if (filename == NULL)
 return (-1);
 if (text_content == NULL)
-text_content = "";  
+text_content = "";
 while (text_content[i] != '\0')
-i++; 
+i++;
 file = open(filename, O_WRONLY | O_APPEND);
 if (file == -1)
 return (-1);

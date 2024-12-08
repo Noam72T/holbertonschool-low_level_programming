@@ -5,7 +5,7 @@
 #include "main.h"
 
 /**
- * create_file - Function create 
+ * create_file - Function create
  * @filename: pointers
  * @text_content: Text contentn
  * Return: -1 for failed 1 to sucess

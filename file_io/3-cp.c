@@ -48,9 +48,9 @@ int main(int argc, char *argv[])
 }
 /**
  * error_and_exit - Function Error and exit.
- * @message: Error mess.
+ * @msg: Error mess.
  * @code: Code Error.
- * @file_name: Name of the file.
+ * @file: Name of the file.
  */
 
 void error_exit(const char *msg, int code, const char *file)
